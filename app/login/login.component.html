@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="jumbotron">
+     <h4 class="text-success" class="text-center">Sign In </h4>
+  </div>
+  <form (ngSubmit)=login(loginForm) #loginForm="ngForm">
+  <fieldset>
+    <div class="form-group">
+      <label for="exampleInputEmail1">User Id</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter User Id" name="uid" [(ngModel)]="user.uid" #uid="ngModel" required>
+      <p class="h6 text-danger" *ngIf="uid.dirty && uid.invalid">User Id can't be empty.</p>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" [(ngModel)]="user.password" #password="ngModel" required>
+    <p class="h6 text-danger" *ngIf="password.dirty && password.invalid">Password can't be empty.</p>
+    </div>
+     <div class="form-group">
+      <button class="btn btn-primary" type="submit" [disabled]="loginForm.pristine || (loginForm.dirty && loginForm.invalid)">Login</button>
+     </div>
+  </fieldset>
+  </form>
+    
+  <p class="lead text-success" *ngIf = "loginService.loginStatus == 1">
+    Login Status: Success
+  </p>
+  <p class="lead text-danger" *ngIf = "loginService.loginStatus == 0">
+    Login Status: Failed
+  </p>
+</div>

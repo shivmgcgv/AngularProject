@@ -1,0 +1,63 @@
+<div class="container" >
+  <p class="jumbotron text-center">
+    List of User Registered for Application
+  </p>
+  <ul>
+    <li *ngFor="let user of userList">Uid - {{user.uid}} <br>Password- {{user.password}}</li>
+  </ul>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+   <button type="button" class="btn btn-info btn-lg" (click)=fetchData()>Fetch Data</button>
+<!-- Modal -->
+  <div class="modal" id="myModal" >
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content"  >
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        
+        <p>Modal body text goes here.</p>
+        Id: <input type="text" class="form-control" placeholder="Enter User Id" name="uid" [(ngModel)]="user.uid">
+        password: <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="user.password">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveData()" data-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--code to modify-->
+
+<!--first 4 coloumn -->
+<div class="row">
+<div class="col-lg-4">
+<div class="card text-white bg-success mb-3" style="max-width: 20rem;" *ngFor="let user of userList">
+  <div class="card-header">New Nodes</div>
+  <div class="card-body">
+    <h4 class="card-title">{{user.uid}}</h4>
+    <p class="card-text">{{user.password}}</p>
+  </div>
+</div>
+</div>
+
+<!--2nd 4 coloumn -->
+<div class="col-lg-4">
+  Date: 2018-12-27T10:48:12.398Z - Hash: 01b9d94e902a978c31ed - Time: 497ms
+</div>
+
+<!-- 3rd 4 coloumn -->
+<div class="col-lg-4">
+  Date: 2018-12-27T10:48:12.398Z - Hash: 01b9d94e902a978c31ed - Time: 497ms
+</div>
+
+</div>
+
+</div>   
+<!-- container main div -->
